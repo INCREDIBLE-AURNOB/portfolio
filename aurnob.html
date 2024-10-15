@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurnob's Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #c9f6c7 0%, #E0FFFF 20%, #FFFFFF 40%, #FFFFFF 100%);
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .main-content {
+            flex: 2;
+            padding: 2rem;
+        }
+
+        .sidebar {
+            flex: 1;
+            background-color: #000000;
+            color: white;
+            padding: 2rem;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        h1,
+        h2 {
+            margin: 0;
+        }
+
+        .experience,
+        .education {
+            margin-bottom: 4rem;
+        }
+
+        .job,
+        .degree {
+            margin-bottom: 3rem;
+        }
+
+        .date {
+            color: #828282;
+            font-size: 0.9em;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .sidebar a {
+            color: #4db8ff;
+        }
+
+        .sidebar p {
+            font-size: 1rem;
+        }
+
+        .titleColor {
+            color: gray;
+        }
+
+        .blakin {
+            color: black;
+        }
+
+        .about,
+        .research-interests,
+        .contact {
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .main-content,
+            .sidebar {
+                flex: 1;
+                width: 100%;
+                padding: 2rem;
+                box-sizing: border-box;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .main-content,
+            .sidebar {
+                padding: 1.5rem;
+            }
+
+            .profile {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .profile img {
+                margin-bottom: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            .main-content,
+            .sidebar {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            .profile img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-content">
+            <div class="profile">
+                <img src="/arr.png" alt="Santhosh M Patil">
+                <div>
+                    <h1>AL RAFI AURNOB</h1>
+                    <a target="_blank" href="mailto:inc.aurnob@gmail.com">
+                        <p>E-mail: <u><i>inc.aurnob@gmail.com</i></u></p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="experience">
+                <h2 class="titleColor">Experience</h2>
+                <div class="job">
+                    <h3>Artificial Intelligence Research & Innovation Lab - AIRIL</h3>
+                    <p class="blakin">Research Assistant </p>
+                    <p class="date">Nov. 2023 - Present</p>
+                </div>
+
+                <div class="job">
+                    <h3>Learnify Research Lab - LRL</h3>
+                    <p class="blakin">Co-Founder </p>
+                    <p>We have worked on many topics in our research lab including deep learning, federated learning and
+                        currently we are working on GANs.</p>
+                    <p class="date">Dec. 2023 - Present </p>
+                </div>
+
+                <div class="job">
+                    <h3>ACI Motors Limited</h3>
+                    <p class="blakin">Data Scientist Intern</p>
+                    <p class="blakin">Research on crop yield,
+                        Harvester lat lon movement tracking,
+                        Credit movement,
+                        Territory ranking dashboard,
+                        Collaborative filtering</p>
+                    <p class="date">Feb. 2024- May, 2024</p>
+                </div>
+            </div>
+
+            <div class="education">
+                <h2 class="titleColor">Education</h2>
+                <div class="degree">
+                    <h3> American International University-Bangladesh</h3>
+                    <p class="blakin">B.S.c. in Computer Science and Engineering</p>
+                    <p class="date">Nov. 2019- Present</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="about">
+                <h2 class="titleColor">About</h2>
+                <p>Hello ! I am a learner and passionate in
+                    machine learning for solving complex
+                    problems through innovative data-driven
+                    solutions. Seeking a challenging ML
+                    project where I can apply my strong
+                    analytical skills, solid understanding of
+                    ML algorithms, and proficiency in
+                    programming languages such as Python</p>
+            </div>
+
+            <div class="research-interests">
+                <h2 class="titleColor">Research Interests</h2>
+                <ul>
+                    <li>Machine Learning</li>
+                    <li>Computer Vision</li>
+                    <li>Deep Learning</li>
+                    <li>Federated Learning</li>
+                </ul>
+            </div>
+
+            <div class="contact">
+                <h2 class="titleColor">Contact</h2>
+                <p><a target="_blank" href="https://github.com/INCREDIBLE-AURNOB">Github →</a></p>
+                <p><a target="_blank" href="https://www.linkedin.com/in/al-rafi-aurnob-81439b1a4/">LinkedIn →</a></p>
+                <p><a target="_blank" href="https://www.researchgate.net/profile/Al-Aurnob">ResearchGate →</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
