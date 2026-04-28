@@ -1,173 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurnob's Portfolio</title>
+    <title>Al Rafi Aurnob | AI Researcher & ML Engineer</title>
     <style>
+        * {margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth;}
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom right, #c9f6c7 0%, #E0FFFF 20%, #FFFFFF 40%, #FFFFFF 100%);
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+            line-height: 1.6;
         }
-
         .container {
-            display: flex;
-            flex-direction: row;
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            min-height: 100vh;
         }
-
         .main-content {
-            flex: 2;
-            padding: 2rem;
+            padding: 50px;
+            background: #ffffff;
         }
-
         .sidebar {
-            flex: 1;
-            background-color: #000000;
-            color: white;
-            padding: 2rem;
+            background: linear-gradient(180deg,#0f172a,#1e293b);
+            color: #e5e7eb;
+            padding: 50px 35px;
         }
-
         .profile {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
+            display:flex;
+            align-items:center;
+            gap:25px;
+            margin-bottom:50px;
+            border-bottom:2px solid #e5e7eb;
+            padding-bottom:25px;
         }
-
         .profile img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-right: 1rem;
+            width:120px;
+            height:120px;
+            border-radius:50%;
+            border:4px solid #334155;
         }
-
-        h1,
+        h1 {
+            font-size:2.3rem;
+            color:#0f172a;
+            letter-spacing:1px;
+        }
+        .subtitle {
+            color:#475569;
+            font-size:1.05rem;
+            margin-top:5px;
+        }
+        .email a {
+            color:#2563eb;
+            text-decoration:none;
+            font-weight:600;
+        }
+        section {margin-bottom:45px;}
         h2 {
-            margin: 0;
+            font-size:1.35rem;
+            margin-bottom:18px;
+            color:#0f172a;
+            border-left:5px solid #2563eb;
+            padding-left:12px;
         }
-
-        .experience,
-        .education {
-            margin-bottom: 4rem;
+        .item {margin-bottom:25px;}
+        .item h3 {font-size:1.1rem; color:#111827;}
+        .role {font-weight:600; color:#334155;}
+        .date {font-size:0.92rem; color:#64748b; margin:5px 0 10px;}
+        ul {padding-left:20px;}
+        li {margin-bottom:8px;}
+        .pub-list li {margin-bottom:14px;}
+        .sidebar h2 {
+            color:#93c5fd;
+            border-left:4px solid #60a5fa;
         }
-
-        .job,
-        .degree {
-            margin-bottom: 3rem;
-        }
-
-        .date {
-            color: #828282;
-            font-size: 0.9em;
-        }
-
-        ul {
-            padding-left: 1.5rem;
-        }
-
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
         .sidebar a {
-            color: #4db8ff;
+            color:#bfdbfe;
+            text-decoration:none;
         }
-
-        .sidebar p {
-            font-size: 1rem;
+        .tag {
+            display:inline-block;
+            background:#334155;
+            color:#e2e8f0;
+            padding:6px 10px;
+            margin:4px;
+            border-radius:20px;
+            font-size:0.88rem;
         }
-
-        .titleColor {
-            color: gray;
+        .stats {
+            background:#eff6ff;
+            border-left:4px solid #2563eb;
+            padding:14px;
+            margin-top:10px;
+            border-radius:8px;
+            color:#1e3a8a;
+            font-weight:600;
         }
-
-        .blakin {
-            color: black;
+        @media(max-width:1024px){
+            .container{grid-template-columns:1fr;}
+            .main-content,.sidebar{padding:30px;}
         }
-
-        .about,
-        .research-interests,
-        .contact {
-            margin-bottom: 4rem;
-        }
-
-        @media (max-width: 1024px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .main-content,
-            .sidebar {
-                flex: 1;
-                width: 100%;
-                padding: 2rem;
-                box-sizing: border-box;
-            }
-        }
-
-        @media (max-width: 768px) {
-
-            .main-content,
-            .sidebar {
-                padding: 1.5rem;
-            }
-
-            .profile {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .profile img {
-                margin-bottom: 1rem;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            h2 {
-                font-size: 1.5em;
-            }
-
-            h3 {
-                font-size: 1.3em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                font-size: 14px;
-            }
-
-            .main-content,
-            .sidebar {
-                padding: 1rem;
-            }
-
-            h1 {
-                font-size: 1.5em;
-            }
-
-            h2 {
-                font-size: 1.3em;
-            }
-
-            h3 {
-                font-size: 1.1em;
-            }
-
-            .profile img {
-                width: 80px;
-                height: 80px;
-            }
+        @media(max-width:600px){
+            .profile{flex-direction:column; align-items:flex-start;}
+            h1{font-size:1.8rem;}
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <div class="main-content">
@@ -175,81 +113,109 @@
                 <img src="https://avatars.githubusercontent.com/u/69011310?v=4" alt="Aurnob">
                 <div>
                     <h1>AL RAFI AURNOB</h1>
-                    <a target="_blank" href="mailto:inc.aurnob@gmail.com">
-                        <p>E-mail: <u><i>inc.aurnob@gmail.com</i></u></p>
-                    </a>
+                    <p class="subtitle">AI Researcher | Machine Learning Engineer | Computer Vision Enthusiast</p>
+                    <p class="email"><a href="mailto:inc.aurnob@gmail.com">inc.aurnob@gmail.com</a></p>
                 </div>
             </div>
 
-            <div class="experience">
-                <h2 class="titleColor">Experience</h2>
-                <div class="job">
-                    <h3>Artificial Intelligence Research & Innovation Lab - AIRIL</h3>
-                    <p class="blakin">Assistant Investigator</p>
-                    <p class="date">Nov. 2023 - Present</p>
+            <section>
+                <h2>Professional Summary</h2>
+                <p>Early-career Artificial Intelligence researcher with strong academic publication record and industry-oriented machine learning deployment experience. Specialized in Federated Learning, Computer Vision, Generative AI, Explainable AI, Medical Imaging, and Hybrid Deep Learning Architectures. Published in high-impact journals including Information Fusion, IEEE Access, Biomedical Signal Processing and Control, and Fire Technology. Experienced in both research innovation and applied business analytics environments.</p>
+                <div class="stats">7+ Peer Reviewed Publications | Research Grant Awardee | AI Industry Internship Experience</div>
+            </section>
+
+            <section>
+                <h2>Professional Experience</h2>
+                <div class="item">
+                    <h3>Advanced Machine Intelligence Research Lab (AMIR)</h3>
+                    <p class="role">Research Assistant</p>
+                    <p class="date">September 2024 – Present</p>
+                    <ul>
+                        <li>Designed privacy-preserving federated learning frameworks with homomorphic encryption for healthcare AI systems.</li>
+                        <li>Developed explainable AI pipelines using Grad-CAM, SHAP, and XAI-integrated CNN architectures.</li>
+                        <li>Built multimodal CNN-Transformer models for cancer classification, recurrence prediction, and disease detection.</li>
+                        <li>Worked on GANs and diffusion models for synthetic augmentation and low-data learning.</li>
+                    </ul>
                 </div>
 
-                <div class="job">
-                    <h3>Learnify Research Lab - LRL</h3>
-                    <p class="blakin">Co-Founder </p>
-                    <p>We have worked on many topics in our research lab including deep learning, federated learning and
-                        currently we are working on GANs.</p>
-                    <p class="date">Dec. 2023 - Present </p>
-                </div>
-
-                <div class="job">
+                <div class="item">
                     <h3>ACI Motors Limited</h3>
-                    <p class="blakin">Data Scientist Intern</p>
-                    <p class="blakin">Research on crop yield,
-                        Harvester lat lon movement tracking,
-                        Credit movement,
-                        Territory ranking dashboard,
-                        Collaborative filtering</p>
-                    <p class="date">Feb. 2024- May, 2024</p>
+                    <p class="role">Data Scientist Intern</p>
+                    <p class="date">February 2024 – May 2024</p>
+                    <ul>
+                        <li>Performed crop yield analytics and predictive factor analysis.</li>
+                        <li>Implemented harvester GPS latitude-longitude movement monitoring.</li>
+                        <li>Built dashboards for credit movement and territory analytics.</li>
+                        <li>Applied collaborative filtering for recommendation-driven business decisions.</li>
+                    </ul>
                 </div>
-            </div>
+            </section>
 
-            <div class="education">
-                <h2 class="titleColor">Education</h2>
-                <div class="degree">
-                    <h3> American International University-Bangladesh</h3>
-                    <p class="blakin">B.S.c. in Computer Science and Engineering</p>
-                    <p class="date">Jan 2020- November 2024</p>
+            <section>
+                <h2>Education</h2>
+                <div class="item">
+                    <h3>American International University-Bangladesh</h3>
+                    <p class="role">B.Sc. in Computer Science & Engineering (Information Systems)</p>
+                    <p class="date">January 2020 – April 2025 | CGPA: 3.59 / 4.00</p>
+                    <p><strong>Thesis:</strong> Enhanced Classification of Rice Plant Diseases Using Ensemble Models with BiT-ResNet</p>
                 </div>
-            </div>
+            </section>
+
+            <section>
+                <h2>Selected Publications</h2>
+                <ul class="pub-list">
+                    <li><strong>FedFusionNet:</strong> Oral Cancer Recurrence Prediction through Federated Fusion Modeling — <i>Information Fusion</i>.</li>
+                    <li><strong>Secure Federated Learning for Parkinson’s Disease</strong> — <i>IEEE Access</i>.</li>
+                    <li><strong>Explainable Deep Learning for Diabetes Diagnosis</strong> — <i>Biomedical Signal Processing and Control</i>.</li>
+                    <li><strong>Forest Fire Detection Using Generative AI and Multimodal Deep Learning</strong> — <i>Fire Technology</i>.</li>
+                    <li><strong>DeepResVit:</strong> Hybrid Deep Learning for Ovarian Cancer Classification — <i>ICICT 2024</i>.</li>
+                    <li><strong>Enhanced Blood Cell Classification by Big Transfer and XAI</strong> — <i>DOSCI 2024</i>.</li>
+                </ul>
+                <p><strong>Full publication list available through Google Scholar / ResearchGate links.</strong></p>
+            </section>
         </div>
 
         <div class="sidebar">
-            <div class="about">
-                <h2 class="titleColor">About</h2>
-                <p>Hello ! I am a learner and passionate in
-                    machine learning for solving complex
-                    problems through innovative data-driven
-                    solutions. Seeking a challenging ML
-                    project where I can apply my strong
-                    analytical skills, solid understanding of
-                    ML algorithms, and proficiency in
-                    programming languages such as Python</p>
-            </div>
+            <section>
+                <h2>Research Domains</h2>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Federated Learning</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Medical Imaging</span>
+                <span class="tag">Generative AI</span>
+                <span class="tag">Explainable AI</span>
+                <span class="tag">Deep Learning</span>
+                <span class="tag">LLMs</span>
+            </section>
 
-            <div class="research-interests">
-                <h2 class="titleColor">Research Interests</h2>
-                <ul>
-                    <li>Machine Learning</li>
-                    <li>Computer Vision</li>
-                    <li>Deep Learning</li>
-                    <li>Federated Learning</li>
-                </ul>
-            </div>
+            <section>
+                <h2>Technical Skills</h2>
+                <p><strong>Programming:</strong> Python, R, SQL, MySQL</p>
+                <p><strong>Frameworks:</strong> PyTorch, TensorFlow, Keras, Scikit-learn</p>
+                <p><strong>Visualization:</strong> Power BI, Excel, Google Looker</p>
+                <p><strong>Research:</strong> Hybrid Models, Classification, Detection, Segmentation, Optimization</p>
+            </section>
 
-            <div class="contact">
-                <h2 class="titleColor">Contact</h2>
-                <p><a target="_blank" href="https://github.com/INCREDIBLE-AURNOB">Github →</a></p>
-                <p><a target="_blank" href="https://www.linkedin.com/in/al-rafi-aurnob-81439b1a4/">LinkedIn →</a></p>
-                <p><a target="_blank" href="https://www.researchgate.net/profile/Al-Aurnob">ResearchGate →</a></p>
-            </div>
+            <section>
+                <h2>Award & Funding</h2>
+                <p>Recipient of King Saud University Research Grant for Secure Federated Learning on Parkinson’s Disease (2024).</p>
+            </section>
+
+            <section>
+                <h2>Academic Profiles</h2>
+                <p><a href="https://github.com/INCREDIBLE-AURNOB" target="_blank">GitHub →</a></p>
+                <p><a href="https://scholar.google.com/citations?user=xB1JcWkAAAAJ" target="_blank">Google Scholar →</a></p>
+                <p><a href="https://www.researchgate.net/profile/Al-Aurnob" target="_blank">ResearchGate →</a></p>
+                <p><a href="https://www.linkedin.com/in/al-rafi-aurnob-81439b1a4/" target="_blank">LinkedIn →</a></p>
+            </section>
+
+            <section>
+                <h2>Current Research</h2>
+                <p>• GAT-based decentralized ovarian cancer classification</p>
+                <p>• Diffusion-driven federated medical imaging</p>
+                <p>• Unsupervised retinal disease clustering</p>
+            </section>
         </div>
     </div>
 </body>
-
 </html>
