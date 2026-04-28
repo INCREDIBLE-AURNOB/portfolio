@@ -3,219 +3,1344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al Rafi Aurnob | AI Researcher & ML Engineer</title>
+    <title>Al Rafi Aurnob — AI/ML Engineer & Researcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        * {margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth;}
+        :root {
+            --navy-900: #0a0f1a;
+            --navy-800: #111827;
+            --navy-700: #1a2332;
+            --slate-800: #1e293b;
+            --slate-700: #334155;
+            --slate-600: #475569;
+            --slate-500: #64748b;
+            --slate-400: #94a3b8;
+            --slate-300: #cbd5e1;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --slate-50: #f8fafc;
+            --white: #ffffff;
+            --blue-600: #2563eb;
+            --blue-500: #3b82f6;
+            --blue-400: #60a5fa;
+            --blue-100: #dbeafe;
+            --blue-50: #eff6ff;
+            --teal-500: #0d9488;
+            --teal-100: #ccfbf1;
+            --amber-500: #d97706;
+            --amber-100: #fef3c7;
+            --emerald-500: #059669;
+            --emerald-100: #d1fae5;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f4f7fb;
-            color: #1f2937;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--slate-50);
+            color: var(--slate-800);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .container {
+
+        /* ── NAVIGATION ─────────────────────── */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 15, 26, 0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 0 2rem;
+            transition: var(--transition);
+        }
+
+        .navbar .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--white);
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+        .nav-brand span {
+            color: var(--blue-400);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .nav-links a {
+            color: var(--slate-300);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 0.9rem;
+            border-radius: 24px;
+            transition: var(--transition);
+            white-space: nowrap;
+            letter-spacing: -0.1px;
+        }
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.07);
+        }
+        .nav-links .nav-cta {
+            background: var(--blue-600);
+            color: #fff;
+            padding: 0.5rem 1.15rem;
+            border-radius: 24px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .nav-links .nav-cta:hover {
+            background: var(--blue-500);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.35);
+        }
+
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            padding: 6px;
+            z-index: 1001;
+        }
+        .nav-hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* ── HERO ──────────────────────────── */
+        .hero {
+            background: linear-gradient(160deg, var(--navy-900) 0%, var(--navy-700) 40%, var(--slate-800) 100%);
+            color: var(--white);
+            padding: 5rem 2rem 4.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -30%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.13) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            right: -25%;
+            width: 70%;
+            height: 180%;
+            background: radial-gradient(ellipse at center, rgba(13, 148, 136, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.25);
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+            box-shadow: 0 0 60px rgba(37, 99, 235, 0.25);
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 0.3rem;
+            line-height: 1.15;
+        }
+        .hero .hero-title {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--blue-400);
+            letter-spacing: 0.5px;
+            margin-bottom: 1.2rem;
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
+        }
+        .hero .hero-location {
+            font-size: 0.9rem;
+            color: var(--slate-400);
+            margin-bottom: 1.5rem;
+        }
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+        .hero-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--slate-200);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.55rem 1.1rem;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .hero-links a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.25);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .hero-links .hl-primary {
+            background: var(--blue-600);
+            border-color: var(--blue-600);
+            color: #fff;
+            font-weight: 600;
+        }
+        .hero-links .hl-primary:hover {
+            background: var(--blue-500);
+            border-color: var(--blue-500);
+            box-shadow: 0 0 24px rgba(37, 99, 235, 0.4);
+        }
+
+        /* ── SECTIONS ──────────────────────── */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-alt {
+            background: var(--white);
+            border-top: 1px solid var(--slate-200);
+            border-bottom: 1px solid var(--slate-200);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.8px;
+            color: var(--navy-900);
+            margin-bottom: 0.4rem;
+        }
+        .section-header .section-line {
+            width: 50px;
+            height: 4px;
+            background: var(--blue-500);
+            border-radius: 2px;
+            margin: 0.6rem auto 0;
+        }
+        .section-subtitle {
+            color: var(--slate-500);
+            font-size: 0.95rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ── ABOUT ─────────────────────────── */
+        .about-grid {
             display: grid;
-            grid-template-columns: 2.2fr 1fr;
-            min-height: 100vh;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
         }
-        .main-content {
-            padding: 50px;
-            background: #ffffff;
+        .about-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--slate-200);
         }
-        .sidebar {
-            background: linear-gradient(180deg,#0f172a,#1e293b);
-            color: #e5e7eb;
-            padding: 50px 35px;
+        .about-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.3px;
         }
-        .profile {
-            display:flex;
-            align-items:center;
-            gap:25px;
-            margin-bottom:50px;
-            border-bottom:2px solid #e5e7eb;
-            padding-bottom:25px;
+        .about-card p,
+        .about-card li {
+            font-size: 0.925rem;
+            color: var(--slate-600);
+            line-height: 1.7;
         }
-        .profile img {
-            width:120px;
-            height:120px;
-            border-radius:50%;
-            border:4px solid #334155;
+        .about-card ul {
+            list-style: none;
+            padding: 0;
         }
-        h1 {
-            font-size:2.3rem;
-            color:#0f172a;
-            letter-spacing:1px;
+        .about-card ul li {
+            padding: 0.35rem 0;
+            padding-left: 1.3rem;
+            position: relative;
         }
-        .subtitle {
-            color:#475569;
-            font-size:1.05rem;
-            margin-top:5px;
+        .about-card ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--blue-500);
+            font-weight: 700;
         }
-        .email a {
-            color:#2563eb;
-            text-decoration:none;
-            font-weight:600;
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
         }
-        section {margin-bottom:45px;}
-        h2 {
-            font-size:1.35rem;
-            margin-bottom:18px;
-            color:#0f172a;
-            border-left:5px solid #2563eb;
-            padding-left:12px;
+        .interest-tag {
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.35rem 0.8rem;
+            border-radius: 20px;
+            background: var(--blue-50);
+            color: var(--blue-600);
+            white-space: nowrap;
         }
-        .item {margin-bottom:25px;}
-        .item h3 {font-size:1.1rem; color:#111827;}
-        .role {font-weight:600; color:#334155;}
-        .date {font-size:0.92rem; color:#64748b; margin:5px 0 10px;}
-        ul {padding-left:20px;}
-        li {margin-bottom:8px;}
-        .pub-list li {margin-bottom:14px;}
-        .sidebar h2 {
-            color:#93c5fd;
-            border-left:4px solid #60a5fa;
+
+        /* ── EXPERIENCE ────────────────────── */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--slate-200);
         }
-        .sidebar a {
-            color:#bfdbfe;
-            text-decoration:none;
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
         }
-        .tag {
-            display:inline-block;
-            background:#334155;
-            color:#e2e8f0;
-            padding:6px 10px;
-            margin:4px;
-            border-radius:20px;
-            font-size:0.88rem;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.45rem;
+            top: 0.4rem;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--blue-500);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--blue-500);
+            z-index: 1;
         }
-        .stats {
-            background:#eff6ff;
-            border-left:4px solid #2563eb;
-            padding:14px;
-            margin-top:10px;
-            border-radius:8px;
-            color:#1e3a8a;
-            font-weight:600;
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
-        @media(max-width:1024px){
-            .container{grid-template-columns:1fr;}
-            .main-content,.sidebar{padding:30px;}
+        .timeline-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.75rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--slate-200);
+            transition: var(--transition);
         }
-        @media(max-width:600px){
-            .profile{flex-direction:column; align-items:flex-start;}
-            h1{font-size:1.8rem;}
+        .timeline-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        .timeline-card .tc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+        }
+        .timeline-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            letter-spacing: -0.3px;
+        }
+        .timeline-card .tc-org {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--blue-600);
+        }
+        .timeline-card .tc-date {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--slate-500);
+            background: var(--slate-100);
+            padding: 0.25rem 0.7rem;
+            border-radius: 14px;
+            white-space: nowrap;
+        }
+        .timeline-card .tc-location {
+            font-size: 0.8rem;
+            color: var(--slate-400);
+        }
+        .timeline-card ul {
+            margin-top: 0.6rem;
+            padding-left: 1.2rem;
+            list-style: none;
+        }
+        .timeline-card ul li {
+            font-size: 0.9rem;
+            color: var(--slate-600);
+            padding: 0.25rem 0;
+            position: relative;
+            padding-left: 1rem;
+        }
+        .timeline-card ul li::before {
+            content: '—';
+            position: absolute;
+            left: -0.8rem;
+            color: var(--slate-400);
+        }
+
+        /* ── PUBLICATIONS ──────────────────── */
+        .pub-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .pub-tab {
+            padding: 0.6rem 1.4rem;
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            border: 2px solid var(--slate-200);
+            background: var(--white);
+            color: var(--slate-600);
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .pub-tab.active {
+            background: var(--blue-600);
+            color: #fff;
+            border-color: var(--blue-600);
+        }
+        .pub-tab:hover:not(.active) {
+            border-color: var(--blue-300);
+            color: var(--blue-600);
+        }
+        .pub-panel {
+            display: none;
+        }
+        .pub-panel.active {
+            display: block;
+        }
+        .pub-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 1.35rem 1.6rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--slate-200);
+            transition: var(--transition);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+        .pub-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--slate-300);
+        }
+        .pub-badge {
+            flex-shrink: 0;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 0.3rem 0.65rem;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+        .badge-journal {
+            background: var(--blue-100);
+            color: var(--blue-600);
+        }
+        .badge-conf {
+            background: var(--emerald-100);
+            color: var(--emerald-500);
+        }
+        .badge-if {
+            background: var(--amber-100);
+            color: var(--amber-500);
+            font-weight: 600;
+        }
+        .pub-info {
+            flex: 1;
+            min-width: 220px;
+        }
+        .pub-info .pub-title {
+            font-weight: 700;
+            color: var(--navy-900);
+            font-size: 0.95rem;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.2rem;
+        }
+        .pub-info .pub-authors {
+            font-size: 0.825rem;
+            color: var(--slate-500);
+        }
+        .pub-info .pub-venue {
+            font-size: 0.8rem;
+            color: var(--slate-400);
+            font-style: italic;
+        }
+        .pub-link {
+            flex-shrink: 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--blue-600);
+            text-decoration: none;
+            padding: 0.35rem 0.8rem;
+            border-radius: 16px;
+            background: var(--blue-50);
+            transition: var(--transition);
+            white-space: nowrap;
+            align-self: center;
+        }
+        .pub-link:hover {
+            background: var(--blue-600);
+            color: #fff;
+        }
+        .pub-status {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.55rem;
+            border-radius: 10px;
+            white-space: nowrap;
+            align-self: center;
+        }
+        .status-published {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .status-review {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* ── PROJECTS ──────────────────────── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .project-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.6rem 1.75rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--slate-200);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+            border-color: var(--slate-300);
+        }
+        .project-card h4 {
+            font-weight: 700;
+            color: var(--navy-900);
+            letter-spacing: -0.3px;
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+        .project-card .proj-tech {
+            font-size: 0.75rem;
+            color: var(--blue-600);
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.2px;
+        }
+        .project-card p {
+            font-size: 0.875rem;
+            color: var(--slate-600);
+            flex: 1;
+        }
+        .project-card .proj-highlight {
+            font-weight: 600;
+            color: var(--emerald-500);
+            font-size: 0.8rem;
+        }
+
+        /* ── SKILLS ────────────────────────── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-category {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.6rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--slate-200);
+        }
+        .skill-category h4 {
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.2px;
+            font-size: 0.95rem;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .skill-tag {
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 0.3rem 0.7rem;
+            border-radius: 16px;
+            background: var(--slate-100);
+            color: var(--slate-700);
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+        .skill-tag:hover {
+            background: var(--blue-100);
+            color: var(--blue-600);
+        }
+
+        /* ── EDUCATION ─────────────────────── */
+        .edu-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.75rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--slate-200);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .edu-card h3 {
+            font-weight: 700;
+            color: var(--navy-900);
+            letter-spacing: -0.3px;
+        }
+        .edu-card .edu-detail {
+            font-size: 0.9rem;
+            color: var(--slate-500);
+        }
+        .edu-card .edu-cgpa {
+            font-weight: 700;
+            color: var(--blue-600);
+            font-size: 1rem;
+            background: var(--blue-50);
+            padding: 0.35rem 0.8rem;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+
+        /* ── AWARDS ────────────────────────── */
+        .award-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 1.35rem 1.6rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--amber-100);
+            background: #fffdf5;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .award-card .award-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+        }
+        .award-card p {
+            font-size: 0.9rem;
+            color: var(--slate-700);
+        }
+        .award-card .award-grant {
+            font-weight: 700;
+            color: var(--amber-500);
+        }
+
+        /* ── FOOTER ────────────────────────── */
+        .footer {
+            background: var(--navy-900);
+            color: var(--slate-300);
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+        .footer a {
+            color: var(--blue-400);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .footer a:hover {
+            color: #fff;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .footer-links a {
+            font-size: 0.9rem;
+        }
+        .footer p {
+            font-size: 0.8rem;
+            color: var(--slate-500);
+        }
+
+        /* ── RESPONSIVE ────────────────────── */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 15, 26, 0.97);
+                flex-direction: column;
+                padding: 1rem 1.5rem 1.5rem;
+                gap: 0.3rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-hamburger {
+                display: flex;
+            }
+            .timeline {
+                padding-left: 1.25rem;
+            }
+            .timeline-item {
+                padding-left: 1rem;
+            }
+            .timeline-item::before {
+                left: -1.7rem;
+                width: 10px;
+                height: 10px;
+            }
+            .pub-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 3rem 1.25rem 2.5rem;
+            }
+            .hero h1 {
+                font-size: 1.65rem;
+            }
+            .section {
+                padding: 2.5rem 1.25rem;
+            }
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .timeline-card .tc-header {
+                flex-direction: column;
+            }
+            .pub-tabs {
+                gap: 0.3rem;
+            }
+            .pub-tab {
+                padding: 0.45rem 0.9rem;
+                font-size: 0.78rem;
+            }
+            .edu-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .hero-links a {
+                font-size: 0.78rem;
+                padding: 0.45rem 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="main-content">
-            <div class="profile">
-                <img src="https://avatars.githubusercontent.com/u/69011310?v=4" alt="Aurnob">
-                <div>
-                    <h1>AL RAFI AURNOB</h1>
-                    <p class="subtitle">AI Researcher | Machine Learning Engineer | Computer Vision Enthusiast</p>
-                    <p class="email"><a href="mailto:inc.aurnob@gmail.com">inc.aurnob@gmail.com</a></p>
+
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-brand">Aurnob<span>.dev</span></a>
+            <button class="nav-hamburger" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <header class="hero" id="hero">
+        <div class="hero-content">
+            <img src="https://avatars.githubusercontent.com/u/69011310?v=4"
+            alt="Al Rafi Aurnob" class="hero-avatar" loading="lazy">
+            <h1>Al Rafi Aurnob</h1>
+            <p class="hero-title">AI/ML Engineer &amp; Published Researcher</p>
+            <p class="hero-location">📍 Kuril, Vatara, Dhaka, Bangladesh</p>
+            <div class="hero-links">
+                <a href="https://github.com/INCREDIBLE-AURNOB" target="_blank" rel="noopener" class="hl-primary">🔗 GitHub</a>
+                <a href="https://www.linkedin.com/in/al-rafi-aurnob-81439b1a4/" target="_blank" rel="noopener">💼 LinkedIn</a>
+                <a href="https://scholar.google.com/citations?user=xB1JcWkAAAAJ&hl=en&authuser=2" target="_blank" rel="noopener">📚 Google Scholar</a>
+                <a href="https://www.researchgate.net/profile/Al-Aurnob" target="_blank" rel="noopener">🔬 ResearchGate</a>
+                <a href="mailto:inc.aurnob@gmail.com">✉️ inc.aurnob@gmail.com</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════════ ABOUT ═══════════════ -->
+    <section class="section" id="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>📋 Professional Summary</h3>
+                <p>
+                    Motivated <strong>AI/ML Engineer</strong> with hands-on experience in deep learning,
+                    Generative AI, and real-world AI system development. Proficient in Python, PyTorch,
+                    TensorFlow, and Scikit-Learn, with applied exposure to LLM-based applications,
+                    RAG pipelines, vector embeddings, and NLP. Published researcher with 10+ peer-reviewed
+                    articles across Q1 journals and international conferences. Eager to contribute to
+                    AI &amp; Innovation teams and build impactful intelligent solutions.
+                </p>
+            </div>
+            <div class="about-card">
+                <h3>🔍 Research Interests</h3>
+                <ul>
+                    <li>Deep Learning &amp; Computer Vision</li>
+                    <li>Federated Learning &amp; Privacy-Preserving AI</li>
+                    <li>Generative AI (GANs, Diffusion Models, LLMs)</li>
+                    <li>Explainable AI (XAI) — Grad-CAM, SHAP</li>
+                    <li>Multimodal &amp; Hybrid Architectures</li>
+                    <li>Medical Image Analysis &amp; Clinical AI</li>
+                </ul>
+                <div class="interest-tags">
+                    <span class="interest-tag">PyTorch</span>
+                    <span class="interest-tag">TensorFlow</span>
+                    <span class="interest-tag">LangChain</span>
+                    <span class="interest-tag">RAG</span>
+                    <span class="interest-tag">Vector Embeddings</span>
+                    <span class="interest-tag">Federated Learning</span>
+                    <span class="interest-tag">XAI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ EXPERIENCE ═══════════════ -->
+    <section class="section section-alt" id="experience">
+        <div class="section-header">
+            <h2>Professional Experience</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="timeline">
+
+            <!-- AMIR Lab -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <div class="tc-header">
+                        <div>
+                            <h3>Research Data Analyst / Research Assistant</h3>
+                            <p class="tc-org">Advanced Machine Intelligence Research Lab (AMIR Lab)</p>
+                        </div>
+                        <span class="tc-date">Sep 2024 – Present</span>
+                    </div>
+                    <p class="tc-location">📍 Dhaka, Bangladesh</p>
+                    <ul>
+                        <li>Designed privacy-preserving <strong>federated learning</strong> frameworks with homomorphic encryption for Parkinson's diagnosis &amp; kidney imaging (IEEE Access, ICONIP 2024).</li>
+                        <li>Developed explainable deep learning pipelines integrating <strong>Grad-CAM &amp; SHAP</strong> for clinical interpretability in diabetes diagnosis, blood cell classification &amp; cancer detection.</li>
+                        <li>Engineered multimodal &amp; hybrid architectures (<strong>CNN-Transformer, FedFusionNet</strong>) for oral cancer recurrence &amp; ovarian cancer classification — published in Information Fusion (IF: 15.5).</li>
+                        <li>Investigated <strong>generative AI</strong> (diffusion models, GANs) for data augmentation &amp; fire detection; applied transfer learning (EfficientNet, BiT) to dermatological image classification.</li>
+                        <li>Contributed to <strong>10+ peer-reviewed publications</strong> across Q1 journals &amp; indexed conferences.</li>
+                        <li>Built biomedical data pipelines (PyTorch, Pandas, NumPy) reducing preprocessing time by <strong>45%</strong>.</li>
+                    </ul>
                 </div>
             </div>
 
-            <section>
-                <h2>Professional Summary</h2>
-                <p>Early-career Artificial Intelligence researcher with strong academic publication record and industry-oriented machine learning deployment experience. Specialized in Federated Learning, Computer Vision, Generative AI, Explainable AI, Medical Imaging, and Hybrid Deep Learning Architectures. Published in high-impact journals including Information Fusion, IEEE Access, Biomedical Signal Processing and Control, and Fire Technology. Experienced in both research innovation and applied business analytics environments.</p>
-                <div class="stats">7+ Peer Reviewed Publications | Research Grant Awardee | AI Industry Internship Experience</div>
-            </section>
-
-            <section>
-                <h2>Professional Experience</h2>
-                <div class="item">
-                    <h3>Advanced Machine Intelligence Research Lab (AMIR)</h3>
-                    <p class="role">Research Assistant</p>
-                    <p class="date">September 2024 – Present</p>
+            <!-- ACI Motors -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <div class="tc-header">
+                        <div>
+                            <h3>Data Analyst / Data Scientist Intern</h3>
+                            <p class="tc-org">ACI Motors Ltd</p>
+                        </div>
+                        <span class="tc-date">Feb 2024 – Jul 2024</span>
+                    </div>
+                    <p class="tc-location">📍 Dhaka, Bangladesh</p>
                     <ul>
-                        <li>Designed privacy-preserving federated learning frameworks with homomorphic encryption for healthcare AI systems.</li>
-                        <li>Developed explainable AI pipelines using Grad-CAM, SHAP, and XAI-integrated CNN architectures.</li>
-                        <li>Built multimodal CNN-Transformer models for cancer classification, recurrence prediction, and disease detection.</li>
-                        <li>Worked on GANs and diffusion models for synthetic augmentation and low-data learning.</li>
+                        <li>Cleaned &amp; analyzed crop yield, harvester GPS &amp; credit transaction datasets using <strong>Python &amp; SQL</strong>, reducing reporting turnaround by <strong>40%</strong>.</li>
+                        <li>Built interactive <strong>Power BI &amp; Looker Studio</strong> KPI dashboards for 3+ operational teams, cutting manual report generation by <strong>50%</strong>.</li>
+                        <li>Designed a credit movement tracker in Python to flag transaction anomalies, improving financial data accuracy by <strong>35%</strong>.</li>
+                        <li>Implemented <strong>collaborative filtering</strong> recommendation system boosting product recommendation relevance by <strong>38%</strong>.</li>
+                        <li>Conducted geospatial analysis on harvester movement data, delivering insights that improved route optimization by <strong>20%</strong>.</li>
                     </ul>
                 </div>
+            </div>
 
-                <div class="item">
-                    <h3>ACI Motors Limited</h3>
-                    <p class="role">Data Scientist Intern</p>
-                    <p class="date">February 2024 – May 2024</p>
+            <!-- AIRIL -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <div class="tc-header">
+                        <div>
+                            <h3>Assistant Investigator</h3>
+                            <p class="tc-org">Artificial Intelligence Research &amp; Innovation Lab (AIRIL)</p>
+                        </div>
+                        <span class="tc-date">Nov 2023 – Present</span>
+                    </div>
+                    <p class="tc-location">📍 Dhaka, Bangladesh</p>
                     <ul>
-                        <li>Performed crop yield analytics and predictive factor analysis.</li>
-                        <li>Implemented harvester GPS latitude-longitude movement monitoring.</li>
-                        <li>Built dashboards for credit movement and territory analytics.</li>
-                        <li>Applied collaborative filtering for recommendation-driven business decisions.</li>
+                        <li>Conducting advanced research in deep learning, federated learning &amp; generative adversarial networks (GANs).</li>
                     </ul>
                 </div>
-            </section>
+            </div>
 
-            <section>
-                <h2>Education</h2>
-                <div class="item">
-                    <h3>American International University-Bangladesh</h3>
-                    <p class="role">B.Sc. in Computer Science & Engineering (Information Systems)</p>
-                    <p class="date">January 2020 – April 2025 | CGPA: 3.59 / 4.00</p>
-                    <p><strong>Thesis:</strong> Enhanced Classification of Rice Plant Diseases Using Ensemble Models with BiT-ResNet</p>
+            <!-- Learnify -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <div class="tc-header">
+                        <div>
+                            <h3>Co-Founder</h3>
+                            <p class="tc-org">Learnify Research Lab (LRL)</p>
+                        </div>
+                        <span class="tc-date">Dec 2023 – Present</span>
+                    </div>
+                    <p class="tc-location">📍 Dhaka, Bangladesh</p>
+                    <ul>
+                        <li>Leading research initiatives in deep learning, federated learning &amp; GANs; managing collaborative projects &amp; mentoring team members.</li>
+                    </ul>
                 </div>
-            </section>
+            </div>
 
-            <section>
-                <h2>Selected Publications</h2>
-                <ul class="pub-list">
-                    <li><strong>FedFusionNet:</strong> Oral Cancer Recurrence Prediction through Federated Fusion Modeling — <i>Information Fusion</i>.</li>
-                    <li><strong>Secure Federated Learning for Parkinson’s Disease</strong> — <i>IEEE Access</i>.</li>
-                    <li><strong>Explainable Deep Learning for Diabetes Diagnosis</strong> — <i>Biomedical Signal Processing and Control</i>.</li>
-                    <li><strong>Forest Fire Detection Using Generative AI and Multimodal Deep Learning</strong> — <i>Fire Technology</i>.</li>
-                    <li><strong>DeepResVit:</strong> Hybrid Deep Learning for Ovarian Cancer Classification — <i>ICICT 2024</i>.</li>
-                    <li><strong>Enhanced Blood Cell Classification by Big Transfer and XAI</strong> — <i>DOSCI 2024</i>.</li>
-                </ul>
-                <p><strong>Full publication list available through Google Scholar / ResearchGate links.</strong></p>
-            </section>
+        </div>
+    </section>
+
+    <!-- ═══════════════ PUBLICATIONS ═══════════════ -->
+    <section class="section" id="publications">
+        <div class="section-header">
+            <h2>Research Publications</h2>
+            <div class="section-line"></div>
+        </div>
+        <p class="section-subtitle">10+ peer-reviewed articles — Q1 Journals &amp; Indexed International Conferences</p>
+
+        <div class="pub-tabs">
+            <button class="pub-tab active" data-tab="tab-journals">📄 Journals (6)</button>
+            <button class="pub-tab" data-tab="tab-conferences">🎤 Conferences (4)</button>
+            <button class="pub-tab" data-tab="tab-current">🔬 Current Research</button>
         </div>
 
-        <div class="sidebar">
-            <section>
-                <h2>Research Domains</h2>
-                <span class="tag">Machine Learning</span>
-                <span class="tag">Federated Learning</span>
-                <span class="tag">Computer Vision</span>
-                <span class="tag">Medical Imaging</span>
-                <span class="tag">Generative AI</span>
-                <span class="tag">Explainable AI</span>
-                <span class="tag">Deep Learning</span>
-                <span class="tag">LLMs</span>
-            </section>
-
-            <section>
-                <h2>Technical Skills</h2>
-                <p><strong>Programming:</strong> Python, R, SQL, MySQL</p>
-                <p><strong>Frameworks:</strong> PyTorch, TensorFlow, Keras, Scikit-learn</p>
-                <p><strong>Visualization:</strong> Power BI, Excel, Google Looker</p>
-                <p><strong>Research:</strong> Hybrid Models, Classification, Detection, Segmentation, Optimization</p>
-            </section>
-
-            <section>
-                <h2>Award & Funding</h2>
-                <p>Recipient of King Saud University Research Grant for Secure Federated Learning on Parkinson’s Disease (2024).</p>
-            </section>
-
-            <section>
-                <h2>Academic Profiles</h2>
-                <p><a href="https://github.com/INCREDIBLE-AURNOB" target="_blank">GitHub →</a></p>
-                <p><a href="https://scholar.google.com/citations?user=xB1JcWkAAAAJ" target="_blank">Google Scholar →</a></p>
-                <p><a href="https://www.researchgate.net/profile/Al-Aurnob" target="_blank">ResearchGate →</a></p>
-                <p><a href="https://www.linkedin.com/in/al-rafi-aurnob-81439b1a4/" target="_blank">LinkedIn →</a></p>
-            </section>
-
-            <section>
-                <h2>Current Research</h2>
-                <p>• GAT-based decentralized ovarian cancer classification</p>
-                <p>• Diffusion-driven federated medical imaging</p>
-                <p>• Unsupervised retinal disease clustering</p>
-            </section>
+        <!-- Journals Panel -->
+        <div class="pub-panel active" id="tab-journals">
+            <!-- J3 -->
+            <div class="pub-card">
+                <span class="pub-badge badge-journal">Journal</span>
+                <span class="pub-badge badge-if">IF: 15.5</span>
+                <div class="pub-info">
+                    <p class="pub-title">FedFusionNet: Advancing Oral Cancer Recurrence Prediction through Federated Fusion Modeling</p>
+                    <p class="pub-authors">Al Rafi Aurnob, Sharia Arfin Tanim, Tahmid Enam Shrestha, Durjoy Mistry, M. F. Mridha</p>
+                    <p class="pub-venue">Information Fusion — Published</p>
+                </div>
+                <span class="pub-status status-published">Published</span>
+                <a href="#" class="pub-link">Link</a>
+            </div>
+            <!-- J6 -->
+            <div class="pub-card">
+                <span class="pub-badge badge-journal">Journal</span>
+                <span class="pub-badge badge-if">IF: 4.9</span>
+                <div class="pub-info">
+                    <p class="pub-title">Explainable Deep Learning for Diabetes Diagnosis with DeepNetX2</p>
+                    <p class="pub-authors">Sharia Arfin Tanim, Al Rafi Aurnob, Tahmid Enam Shrestha, MD Rokon Islam Emon, M.F. Mridha, Md Saef Ullah Miah</p>
+                    <p class="pub-venue">Biomedical Signal Processing and Control — Published, 2024</p>
+                </div>
+                <span class="pub-status status-published">Published</span>
+                <a href="#" class="pub-link">Link</a>
+            </div>
+            <!-- J5 -->
+            <div class="pub-card">
+                <span class="pub-badge badge-journal">Journal</span>
+                <span class="pub-badge badge-if">IF: 3.4</span>
+                <div class="pub-info">
+                    <p class="pub-title">Secure Federated Learning for Parkinson's Disease: Non-IID Data Partitioning and Homomorphic Encryption Strategies</p>
+                    <p class="pub-authors">Sharia Arfin Tanim, Al Rafi Aurnob, M. F. Mridha, Mejdl Safran, Sultan Alfarhood, Dunren Che</p>
+                    <p class="pub-venue">IEEE Access — Published, 2024</p>
+                </div>
+                <span class="pub-status status-published">Published</span>
+                <a href="#" class="pub-link">Link</a>
+            </div>
+            <!-- J2 -->
+            <div class="pub-card">
+                <span class="pub-badge badge-journal">Journal</span>
+                <div class="pub-info">
+                    <p class="pub-title">A Comprehensive Framework for Forest Fire Detection Using Generative AI and Multimodal Deep Learning</p>
+                    <p class="pub-authors">Al Rafi Aurnob, Sharia Arfin Tanim, Tapu Biswas, M. F. Mridha, Mejdl Safran, Sultan Alfarhood, Dunren Che</p>
+                    <p class="pub-venue">Fire Technology — Published</p>
+                </div>
+                <span class="pub-status status-published">Published</span>
+                <a href="#" class="pub-link">Link</a>
+            </div>
+            <!-- J4 -->
+            <div class="pub-card">
+                <span class="pub-badge badge-journal">Journal</span>
+                <div class="pub-info">
+                    <p class="pub-title">Enhancing Monkeypox Diagnostics: Exploring the Potential of EfficientNet and Big Transfer</p>
+                    <p class="pub-authors">Sharia Arfin Tanim, Kazi Tanvir, Al Rafi Aurnob, Md. Hasibur Rahman, Tasmia Binte Munir Maisha, Kamruddin Nur</p>
+                    <p class="pub-venue">Journal of Image and Graphics — Published, 2024 (Acceptance: 19%)</p>
+                </div>
+                <span class="pub-status status-published">Published</span>
+                <a href="#" class="pub-link">Link</a>
+            </div>
+            <!-- J1 -->
+            <div class="pub-card">
+                <span class="pub-badge badge-journal">Journal</span>
+                <div class="pub-info">
+                    <p class="pub-title">Identification of Eye Diseases with Small Fundus Image Datasets Using a New Unsupervised Deep Learning Approach</p>
+                    <p class="pub-authors">Al Rafi Aurnob, Sharia Arfin Tanim, Farook Sattar</p>
+                    <p class="pub-venue">Frontiers in Signal Processing — Conditionally Accepted (under minor review)</p>
+                </div>
+                <span class="pub-status status-review">Under Review</span>
+                <a href="#" class="pub-link">Link</a>
+            </div>
         </div>
-    </div>
+
+        <!-- Conferences Panel -->
+        <div class="pub-panel" id="tab-conferences">
+            <div class="pub-card">
+                <span class="pub-badge badge-conf">Conference</span>
+                <div class="pub-info">
+                    <p class="pub-title">Explainable Federated Stacking Models with Encrypted Gradients for Secure Kidney Medical Imaging Diagnosis</p>
+                    <p class="pub-authors">Sharia Arfin Tanim, Al Rafi Aurnob, MD Rokon Islam, Md Saef Ullah Miah, M. Mostafizur Rahman, Mufti Mahmud</p>
+                    <p class="pub-venue">31st ICONIP — Published, 2024</p>
+                </div>
+                <span class="pub-status status-published">Published</span>
+                <a href="#" class="pub-link">Link</a>
+            </div>
+            <div class="pub-card">
+                <span class="pub-badge badge-conf">Conference</span>
+                <div class="pub-info">
+                    <p class="pub-title">FusedMAC Framework Analysis for Enhanced Animal Condition Monitoring</p>
+                    <p class="pub-authors">Al Rafi Aurnob, Sharia Arfin Tanim, Tonmoy Mohajan, Kamruddin Nur</p>
+                    <p class="pub-venue">13th ICECE — Published</p>
+                </div>
+                <span class="pub-status status-published">Published</span>
+                <a href="#" class="pub-link">Link</a>
+            </div>
+            <div class="pub-card">
+                <span class="pub-badge badge-conf">Conference</span>
+                <div class="pub-info">
+                    <p class="pub-title">Enhancing Blood Cell Classification by Applying Big Transfer and XAI</p>
+                    <p class="pub-authors">Sharia Arfin Tanim, Al Rafi Aurnob, Tahmid Enam Shrestha, Tamimul Alam, Kamruddin Nur</p>
+                    <p class="pub-venue">5th DOSCI — Published, 2024 (Acceptance: 20%)</p>
+                </div>
+                <span class="pub-status status-published">Published</span>
+                <a href="#" class="pub-link">Link</a>
+            </div>
+            <div class="pub-card">
+                <span class="pub-badge badge-conf">Conference</span>
+                <div class="pub-info">
+                    <p class="pub-title">DeepResVit: A Hybrid Deep Learning Approach for Ovarian Cancer Classification with XAI</p>
+                    <p class="pub-authors">Al Rafi Aurnob, Tahmid Enam Shrestha, Md Sadi Al Huda, Shaif Ahamed Tamim, Ridwan Ahmed Arman, Md. Asraf Ali</p>
+                    <p class="pub-venue">ICICT 2024 — Published</p>
+                </div>
+                <span class="pub-status status-published">Published</span>
+                <a href="#" class="pub-link">Link</a>
+            </div>
+        </div>
+
+        <!-- Current Research Panel -->
+        <div class="pub-panel" id="tab-current">
+            <div class="pub-card">
+                <span class="pub-badge badge-conf">In Progress</span>
+                <div class="pub-info">
+                    <p class="pub-title">Image-to-Image Decentralized Ovarian Cancer Classification Using Graph Attention Network</p>
+                    <p class="pub-venue">Ongoing Research</p>
+                </div>
+            </div>
+            <div class="pub-card">
+                <span class="pub-badge badge-conf">In Progress</span>
+                <div class="pub-info">
+                    <p class="pub-title">Federated Learning-Driven Ovarian Cancer Classification Using Diffusion Models: A Novel Approach for Privacy-Preserving Medical Image Analysis</p>
+                    <p class="pub-venue">Ongoing Research</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ KEY PROJECTS ═══════════════ -->
+    <section class="section section-alt" id="projects">
+        <div class="section-header">
+            <h2>Key Projects</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h4>DeepResVit: Ovarian Cancer Classification</h4>
+                <p class="proj-tech">PyTorch · ResNet152 · ViT · Grad-CAM++</p>
+                <p>Hybrid deep learning combining ResNet152 &amp; Vision Transformer on histopathology images — <strong>98.65% test accuracy</strong>. Integrated Grad-CAM++ heatmaps for clinical interpretability, increasing clinician trust by 30%.</p>
+                <p class="proj-highlight">🏆 Published at ICICT 2024</p>
+            </div>
+            <div class="project-card">
+                <h4>AI Policy Chatbot (RAG / LLM)</h4>
+                <p class="proj-tech">Python · LangChain · ChromaDB · OpenAI API · NLP</p>
+                <p>Generative AI chatbot with RAG architecture over 50+ policy PDFs. ChromaDB vector embeddings achieved <strong>~92% retrieval relevance</strong>, reducing document lookup time by 70%. Sub-second semantic search across 10,000+ sections.</p>
+            </div>
+            <div class="project-card">
+                <h4>AI-Powered Sales CRM</h4>
+                <p class="proj-tech">Python · Scikit-Learn · REST API · Automation</p>
+                <p>Automated lead scoring &amp; persona generation pipeline improving qualified-lead identification by <strong>38%</strong>. REST API endpoints for real-time lead ranking, reducing sales response time by 45%.</p>
+            </div>
+            <div class="project-card">
+                <h4>Credit Card Fraud Detection</h4>
+                <p class="proj-tech">Python · SMOTE · Scikit-Learn · SQL</p>
+                <p>Applied SMOTE on skewed transactional data achieving <strong>~99.9% detection accuracy</strong>. Engineered transaction-level features increasing model recall by 22% on unseen fraud cases.</p>
+            </div>
+            <div class="project-card">
+                <h4>Market Basket Analysis &amp; Customer Segmentation</h4>
+                <p class="proj-tech">Python · mlxtend · K-Means · Excel</p>
+                <p>Apriori algorithm for association rule mining — identified cross-sell pairs driving <strong>25% increase in promotional revenue</strong>. K-Means clustering for targeted campaigns improving conversion rates by 18%.</p>
+            </div>
+            <div class="project-card">
+                <h4>Federated Learning for Parkinson's Classification</h4>
+                <p class="proj-tech">OpenFL · Flower · CKKS Homomorphic Encryption</p>
+                <p>Secure FL pipeline with CKKS encryption; improved Non-IID data robustness by <strong>28%</strong>. Published in IEEE Access (IF: 3.4).</p>
+                <p class="proj-highlight">🏆 Published in IEEE Access</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ SKILLS ═══════════════ -->
+    <section class="section" id="skills">
+        <div class="section-header">
+            <h2>Core Skills &amp; Technologies</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>💻 Programming &amp; Scripting</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span><span class="skill-tag">R</span><span class="skill-tag">SQL</span>
+                    <span class="skill-tag">MySQL</span><span class="skill-tag">PostgreSQL</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>🧠 ML &amp; Deep Learning</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span>
+                    <span class="skill-tag">Scikit-Learn</span><span class="skill-tag">Generative AI</span><span class="skill-tag">LLMs</span>
+                    <span class="skill-tag">RAG Pipelines</span><span class="skill-tag">Vector Embeddings</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>📊 Data Analysis &amp; Visualization</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Power BI</span><span class="skill-tag">Looker Studio</span><span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span><span class="skill-tag">Advanced Excel</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>🔧 Tools &amp; Platforms</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Git</span><span class="skill-tag">Docker</span><span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">Jupyter</span><span class="skill-tag">Google Colab</span><span class="skill-tag">Kaggle</span>
+                    <span class="skill-tag">OpenAI API</span><span class="skill-tag">Hugging Face</span><span class="skill-tag">LangChain</span>
+                    <span class="skill-tag">ChromaDB</span><span class="skill-tag">Jira</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>🔬 Research &amp; Specialized</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Federated Learning</span><span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">XAI (Grad-CAM, SHAP)</span><span class="skill-tag">Homomorphic Encryption</span>
+                    <span class="skill-tag">GANs</span><span class="skill-tag">Diffusion Models</span>
+                    <span class="skill-tag">Transfer Learning</span><span class="skill-tag">Prompt Engineering</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>🤝 Soft Skills</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Data Storytelling</span><span class="skill-tag">Stakeholder Reporting</span>
+                    <span class="skill-tag">Cross-functional Collaboration</span><span class="skill-tag">Research Writing</span>
+                    <span class="skill-tag">Problem-Solving</span><span class="skill-tag">Adaptability</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ EDUCATION ═══════════════ -->
+    <section class="section section-alt" id="education">
+        <div class="section-header">
+            <h2>Education</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="edu-card">
+            <div>
+                <h3>American International University – Bangladesh (AIUB)</h3>
+                <p class="edu-detail">B.Sc. in Computer Science &amp; Engineering · Major: Information Systems</p>
+                <p class="edu-detail">Jan 2020 – Apr 2025 · Dhaka, Bangladesh</p>
+                <p class="edu-detail" style="margin-top:0.3rem;font-size:0.85rem;color:var(--slate-500);">
+                    Relevant Courses: Machine Learning, Computer Vision &amp; Pattern Recognition, Data Mining, Probability &amp; Statistics, Advanced DBMS, Data Structures &amp; Algorithms
+                </p>
+            </div>
+            <span class="edu-cgpa">CGPA: 3.59 / 4.0</span>
+        </div>
+        <div style="text-align:center;margin-top:1.5rem;">
+            <p style="font-size:0.9rem;color:var(--slate-500);">
+                <strong>Higher Secondary Certificate (HSC)</strong> — Science · Cantontment Public School and College, Rangpur (2017–2019)
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════ AWARDS ═══════════════ -->
+    <section class="section" id="awards">
+        <div class="section-header">
+            <h2>Awards &amp; Funding</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="award-card">
+            <div class="award-icon">🏅</div>
+            <p>Research grant from <strong>King Saud University</strong>, Riyadh, Saudi Arabia</p>
+            <p class="award-grant">Grant Number: RSPD2024R1027</p>
+            <p style="font-size:0.85rem;">Project: "Secure Federated Learning for Parkinson's Disease: Non-IID Data Partitioning and Homomorphic Encryption Strategies" — 2024</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════ CONTACT / FOOTER ═══════════════ -->
+    <footer class="footer" id="contact">
+        <h3 style="color:#fff;margin-bottom:0.75rem;letter-spacing:-0.4px;">Get In Touch</h3>
+        <div class="footer-links">
+            <a href="mailto:inc.aurnob@gmail.com">✉️ inc.aurnob@gmail.com</a>
+            <a href="mailto:aurnb.work@gmail.com">✉️ aurnb.work@gmail.com</a>
+            <a href="tel:+8801860064885">📞 +880 1860-064885</a>
+            <a href="https://github.com/INCREDIBLE-AURNOB" target="_blank" rel="noopener">🔗 GitHub</a>
+            <a href="https://www.linkedin.com/in/al-rafi-aurnob-81439b1a4/" target="_blank" rel="noopener">💼 LinkedIn</a>
+            <a href="https://scholar.google.com/citations?user=xB1JcWkAAAAJ&hl=en&authuser=2" target="_blank" rel="noopener">📚 Scholar</a>
+            <a href="https://www.researchgate.net/profile/Al-Aurnob" target="_blank" rel="noopener">🔬 ResearchGate</a>
+        </div>
+        <p>© 2025 Al Rafi Aurnob. Built with dedication. All rights reserved.</p>
+    </footer>
+
+    <!-- ═══════════════ SCRIPTS ═══════════════ -->
+    <script>
+        // ── Mobile Nav Toggle ──────────────────
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        // Close nav on link click (mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ── Publication Tabs ───────────────────
+        const tabButtons = document.querySelectorAll('.pub-tab');
+        const tabPanels = document.querySelectorAll('.pub-panel');
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-tab');
+                // Deactivate all
+                tabButtons.forEach(b => b.classList.remove('active'));
+                tabPanels.forEach(p => p.classList.remove('active'));
+                // Activate
+                btn.classList.add('active');
+                const targetPanel = document.getElementById(targetId);
+                if (targetPanel) targetPanel.classList.add('active');
+            });
+        });
+
+        // ── Navbar shadow on scroll ────────────
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.35)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
